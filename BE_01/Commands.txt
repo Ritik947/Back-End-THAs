@@ -1,0 +1,131 @@
+-------------------------------------------------------------------------------------
+					REDIS						  
+-------------------------------------------------------------------------------------
+
+***IMPORTANT***
+redis-server to start a redis server
+redis-cli to start redis Terminal
+
+
+**BASIC KEY VALUE OPERATIONS**
+Set a key with a value
+SET KEY VALUE
+
+Get a key's value
+GET KEY
+
+To delete a key
+DEL KEY
+
+To check if a key exists in the store; returns 1 for true 0 for false
+EXISTS KEY
+
+To check the keys inside the store
+KEYS *
+
+To delete all the keys
+FLUSHALL
+
+Check Time To Live or expiration time
+ttl KEY
+
+Set TTL or expiration time on existing key
+expire KEY [timeInSeconds]
+
+Set key with TTL
+SETEX KEY [timeInSeconds] VALUE
+
+
+**ARRAYS**
+Push a value from the left
+LPUSH KEY VALUE
+
+Push a value from the right
+RPUSH KEY VALUE
+
+Pop a value from the left
+LPOP KEY VALUE
+
+Pop a value from the right
+RPOP KEY VALUE
+
+Displaying array elements based on start and end index specidied
+LRANGE KEY startingIndex endingIndex
+//For showing entire array, set staringIndex = 0 and endingIndex = 1//
+
+
+**SETS**
+Add value in set
+SADD KEY value
+
+Display all members in a key of Set Type
+SMEMBERS KEY
+
+
+**REDIS OBJECTS / HASHES**
+Set a key value inside a key
+HSET ParentKEY KEY VALUE
+
+Get a key value inside a key
+HGET ParentKEY KEY VALUE
+
+Get all the keys and their value inside a key
+HGETALL ParentKey
+
+Delete a key inside a key
+HDEL parentKey Key
+
+Check if a key has a key
+HEXISTS parentKey key
+
+
+
+-------------------------------------------------------------------------------------
+					POSTGRES						  
+-------------------------------------------------------------------------------------
+
+***IMPORTANT***
+-> Commands in Postgres are written in UPPERCASE but in latest version in lowercase
+is also accepted
+-> A semicolon after every command is mandatory
+
+Create User
+create user <username> with password <yourpassword>
+
+Login in Postgres
+psql -U username
+//Enter password if a prompt appears for a given user//
+
+Create database
+create database <databaseName>
+
+Grant all privileges to a user
+grant all privileges on database <databaseName> to <username>
+
+Grant specific[SELECT | INSERT | DELETE | UPDATE] privilege to a user
+grant <privilege> ON ALL TABLES IN SCHEMA <schemaName> to <username>
+
+Connect to a database
+\c <databaseName>
+
+List databases
+\l
+
+List all users in postgres
+\du
+
+Drop a database or a table or empty schema
+drop database <databaseName>
+
+drop table <tableName>
+
+drop schema <schemaName>
+
+Create table in a database (make sure you are connected to the right database)
+create table <tableName>( <column> Type Key/Constraint, <column> . . . )
+
+Describe a table/relation schema/structure
+\d <tableName>
+
+Quit postgres
+\q or quit
