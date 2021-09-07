@@ -1,0 +1,49 @@
+**PUB/SUB in redis**
+
+Subscribe a channel
+subscribe <channelName>
+
+Publish a message to a channel
+publish <channelName> <message>
+
+Subscribe to all publishers matching a pattern
+psubscribe <pattern>
+
+example: psubscribe d* subscribes all the publishers of any length beginning with the letter d
+Unsubscribe a channel
+unsubscribe <channelName>
+
+Unsubscribe to all publishers matching a pattern
+punsubscribe <pattern>
+
+example: punsubscribe d* usubscribes all the publishers of any length beginning with the letter d 
+
+
+**REDIS STREAMS (v5.0 and above)**
+
+Add in a stream
+xadd <streamName> <ID> <key> <value>
+//Here, ID should be unique//
+
+// You can use * in place of ID to generate timestamp as ID//
+
+//Use MAXLEN to specify that the trimmed stream's length will be exactly the minimum between its original length and the specified threshold//
+example: xadd <streamName> MAXLEN <ID> <KEY <VALUE>
+
+Read a specific number of messages from a stream starting from an ID
+xread COUNT 200 streams <streamName> <starting id>
+
+Disconnect user after a period of inactivity
+xread block <time_in_ms> streams <streamName> <startingId>
+
+Streams like pub/sub
+xread block <tim_in_ms> streams <streamName> $
+
+Access a stream with a starting id and ending id
+xrange <streamName> <startingId> <endingId> [COUNT]
+
+Accessing a specific number of stream messages when starting and ending ID is not known
+xrange <streamName> - + count <number>
+
+Accessing a specific number of stream messages when starting and ending ID is not known (in reverse order)
+xrevrange <streamName> + - count <number>

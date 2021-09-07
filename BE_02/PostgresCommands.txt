@@ -1,0 +1,80 @@
+Drop if exists
+drop <type> if exists <Name>
+//will not throw an error if the table doesn't exist, but it will still throw an error if other database objects depend on it//
+
+Create Schema inside a database
+create schema <schemaName>
+//A schema is like a folder inside our database for restricted access//
+
+Create table inside a schema
+create table <schemaName>.<tableName>( <column> Type Key/Constraint, <column> . . . )
+
+Drop a schema if it is not empty
+drop schema <schemaName> cascade
+//Here, cascade is important as it will also drop the dependencies of that schema, i.e. the tables it contain//
+
+Insert values inside a table
+insert into <tableName>(<columnName>,<columnName>,....) values(<value>,<value>,...)
+
+Display all columns in a table
+select * from <tableName>
+
+Give alias to a select result (exists only for duration of a query)
+Select (20+12) as example
+
+Count number of records in a table
+select count(*) from <tableName>
+
+Get current time
+select CURRENT_TIMESTAMP
+
+Where clause or how to add a condition
+select * from <tableName> where <condition>
+
+ex- select * from ex where age>=10 and name!=NULL;
+
+Where clause with is
+select * from <tableName> where <condition>
+
+ex- select * from ex where age>=10 and name is not NULL;
+
+Where clause with like
+select * from <tableName> where <columnName> like <query>
+
+queries:
+
+matches the characters specified
+
+P%
+
+matches the characters specified character at a specific position and length
+
+P___
+
+Find values in a range
+select * from <tableName> where <columName> between <value> and <value>
+
+Find values in a provided list or a set of values
+select * from <tableName> where <columnName> in (value,value,...)
+
+Update values in a table with a condition
+update <tableName> set <columnName> = <value> <condition>
+
+Delete values in a table with a condition
+delete from <tableName> where <condition>
+
+In case id is not provided if we set the constraint to generated always as identity it will auto generate ex- create table hello (customer_id int generated always as identity)
+
+Type casting
+select * from <tableName> where <columnName>::<Type>
+
+Foreign Key
+Create two tables and when creating second table you can add after last column after a comma
+
+foreign_key(<columnName>) references <table1name>(<columnName>) on <condition>
+
+condition example
+
+delete from second table too if the key is deleted in the table the key is referenced from
+
+on delete cascade
