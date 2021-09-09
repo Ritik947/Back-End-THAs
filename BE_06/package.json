@@ -1,7 +1,7 @@
 {
-  "name": "crud-cli",
+  "name": "async-crud-cli",
   "version": "1.0.0",
-  "description": "A CLI which perform CRUD operations",
+  "description": "A CLI which perform CRUD operations asynchronously",
   "main": "bin/index.js",
   "scripts": {
     "test": ""
@@ -10,7 +10,7 @@
     "cli"
   ],
   "bin": {
-    "crud": "./bin/index.js"
+    "asyncrud": "./bin/index.js"
   },
   "author": "Ritik",
   "license": "Knowing how to drive is enough. Just enjoy the ride",
