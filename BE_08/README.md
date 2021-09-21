@@ -31,13 +31,13 @@ Install the Node.js module for the required functionality, then load it in your 
 
 The following example illustrates installing and loading the cookie-parsing middleware function cookie-parser.
 
-> > npm install cookie-parser
+> $ npm install cookie-parser
 
-```
-var express = require('express')
-var app = express()
-var cookieParser = require('cookie-parser')
+```js
+var express = require('express');
+var app = express();
+var cookieParser = require('cookie-parser');
 
 // load the cookie-parsing middleware
-app.use(cookieParser())
+app.use(cookieParser());
 ```
