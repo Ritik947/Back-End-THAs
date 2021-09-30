@@ -19,7 +19,7 @@ const validateEmail = async (email) => {
   });
   return user ? true : false;
 };
-const userRegister = async (userDet, role, res) => {
+const userRegister = async (UserDet, role, res) => {
   try {
     let emailNotRegistered = await validateEmail(UserDet.email);
     if (emailNotRegistered) {
